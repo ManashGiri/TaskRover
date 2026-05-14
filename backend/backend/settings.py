@@ -40,8 +40,8 @@ ALLOWED_HOSTS = [
 AUTH_USER_MODEL = 'api.User'
 
 CORS_ALLOWED_ORIGINS = [
-    "localhost:5173", 
-    "task-rover-lilac.vercel.app",
+    "http://localhost:5173", 
+    "https://task-rover-lilac.vercel.app",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
