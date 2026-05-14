@@ -19,7 +19,7 @@ export default function EditTaskModal({ isOpen, onClose, onTaskUpdated, task }) 
         description: description,
         is_edited: true 
       });
-      await api.post("/api/logs/", { action: `Admin edited task #${task.id}` });
+      await api.post("/api/logs/", { action: `Admin edited task: ${task.title}` });
       
       onTaskUpdated(); 
       onClose();       

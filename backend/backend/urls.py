@@ -2,9 +2,10 @@ from django import views
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-from api.views import RegisterView
+from api.views import RegisterView, api_root_view
 
 urlpatterns = [
+    path('', api_root_view, name='api-root'),
     path('admin/', admin.site.urls),
     
     path("user/register/", RegisterView.as_view(), name="register"),

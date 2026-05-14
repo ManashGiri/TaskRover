@@ -5,6 +5,25 @@ from django.db.models import Q
 from rest_framework.exceptions import PermissionDenied
 
 
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import AllowAny
+from rest_framework.response import Response
+
+@api_view(['GET'])
+@permission_classes([AllowAny]) # Allows anyone to see this specific welcome page
+def api_root_view(request):
+    return Response({
+        "message": "Welcome to the TaskRover Production API! 🚀",
+        "endpoints": {
+            "users": "/api/users/",
+            "tasks": "/api/tasks/",
+            "visits": "/api/visits/",
+            "logs": "/api/logs/",
+            "login": "/user/token/",
+        }
+    })
+
+
 # USER VIEW 
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
@@ -277,3 +296,5 @@ class ActivityLogListCreate(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+        
+        
