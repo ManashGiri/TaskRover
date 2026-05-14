@@ -6,7 +6,15 @@ class UserSerializer(serializers.ModelSerializer):
     region_name = serializers.ReadOnlyField(source='region.name')
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'role', 'region', 'team', 'team_name', 'region_name']
+        fields = ['id', 'username', 'email', 'password', 'role', 'region', 'team', 'team_name', 'region_name']
+        extra_kwargs = {'password': {'write_only': True, 'required': False}}
+
+    def update(self, instance, validated_data):
+        if 'password' in validated_data:
+            password = validated_data.pop('password')
+            instance.set_password(password)
+        return super().update(instance, validated_data)
+    
         
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
