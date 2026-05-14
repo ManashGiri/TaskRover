@@ -31,12 +31,19 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-your-local-dev-key-he
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'https://taskrover-api.onrender.com',
+    ]
 
 AUTH_USER_MODEL = 'api.User'
 
-# Allow React to talk to Django
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173", 
+    "https://task-rover-lilac.vercel.app",
+]
+
 CORS_ALLOW_CREDENTIALS = True
 
 # Configure Django REST Framework to use JWT Authentication by default
