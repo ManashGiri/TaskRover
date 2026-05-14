@@ -34,14 +34,14 @@ DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    'https://taskrover-api.onrender.com',
+    'taskrover-api.onrender.com',
     ]
 
 AUTH_USER_MODEL = 'api.User'
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173", 
-    "https://task-rover-lilac.vercel.app",
+    "localhost:5173", 
+    "task-rover-lilac.vercel.app",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
