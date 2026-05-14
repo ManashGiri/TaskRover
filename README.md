@@ -1,5 +1,5 @@
 # TaskRover 🚀
-**Live Demo:** [Insert your Vercel Link Here] | **API Endpoint:** [https://taskrover-api.onrender.com/]
+**Live Demo:** [https://task-rover-lilac.vercel.app/] | **API Endpoint:** [https://taskrover-api.onrender.com/]
 
 TaskRover is an enterprise-grade Field Operations Management Portal. It streamlines task deployment, tracks on-site field agent visits, manages organizational hierarchies (Teams & Regions), and leverages a custom Mock AI service to automatically verify and summarize field reports.
 
