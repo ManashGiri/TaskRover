@@ -1,5 +1,8 @@
 # TaskRover 🚀
 **Live Demo:** [https://task-rover-lilac.vercel.app/] | **API Endpoint:** [https://taskrover-api.onrender.com/]
+Admin Account Details:-
+Username:- Myst
+Password:- myst@123
 
 TaskRover is an enterprise-grade Field Operations Management Portal. It streamlines task deployment, tracks on-site field agent visits, manages organizational hierarchies (Teams & Regions), and leverages a custom Mock AI service to automatically verify and summarize field reports.
 
