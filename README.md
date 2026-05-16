@@ -92,6 +92,34 @@ VITE_API_URL=http://localhost:8000  # Replace with Render URL in production
 
 ---
 
+## 📡 API Reference
+*All endpoints require a valid `Bearer <JWT>` token (except where marked Public).*
+
+| Endpoint | Method | Description | Access Level |
+| :--- | :--- | :--- | :--- |
+| `/` | GET | API Root Directory / Welcome Page | Public |
+| `/api/user/token/` | POST | Obtain JWT Access & Refresh Tokens | Public |
+| `/api/user/token/refresh/` | POST | Refresh an expired JWT Access Token | Public |
+| `/api/user/register/` | POST | Register a new user | Public / Admin |
+| `/api/users/` | GET | Retrieve user roster | Authenticated |
+| `/api/users/update/<pk>/` | PATCH/PUT | Update user details or password | Self / Admin |
+| `/api/users/delete/<pk>/` | DELETE | Remove a user from the system | Admin |
+| `/api/tasks/` | GET, POST | List tasks (scoped) or deploy a new task | Authenticated / TeamLead+ |
+| `/api/tasks/update/<pk>/` | PATCH/PUT | Update task status or assignment | Assigned Agent / Admin |
+| `/api/tasks/delete/<pk>/` | DELETE | Delete a task | Admin |
+| `/api/visits/` | GET, POST | List reports or clock-in to a task | Authenticated / Field Agent |
+| `/api/visits/update/<pk>/` | PATCH/PUT | Submit field notes and trigger Mock AI | Assigned Agent |
+| `/api/visits/delete/<pk>/` | DELETE | Delete a field visit record | Admin |
+| `/api/regions/` | GET, POST | List or create geographic regions | Authenticated / Admin |
+| `/api/regions/update/<pk>/` | PATCH/PUT | Modify region details | Admin |
+| `/api/regions/delete/<pk>/` | DELETE | Remove a geographic region | Admin |
+| `/api/teams/` | GET, POST | List or form new operational squads | Authenticated / TeamLead+ |
+| `/api/teams/update/<pk>/` | PATCH/PUT | Modify team details or assignments | TeamLead / Admin |
+| `/api/teams/delete/<pk>/` | DELETE | Disband a team | Admin |
+| `/api/logs/` | GET, POST | View or generate system audit logs | Admin / Auditor (Read) |
+
+---
+
 ## 🚀 Deployment Pipeline
 - **Database:** Supabase (PostgreSQL)
 - **Backend API:** Render (Web Service running Gunicorn & WhiteNoise)
